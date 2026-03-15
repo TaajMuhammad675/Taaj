@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-88">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Voice of Palestine | WhatsApp Group</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #000000;  /* Pure black background */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 16px;
+            animation: fadeIn 1.2s ease-in-out;  /* Page load animation */
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Main card - black with blue accents */
+        .whatsapp-card {
+            max-width: 400px;
+            width: 100%;
+            background-color: #0a0a0a;  /* Deep black card */
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0, 100, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            border: 1px solid #1a4c8c;  /* Blue border */
+            animation: slideUp 0.8s ease-out;  /* Card entrance animation */
+        }
+
+        @keyframes slideUp {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Header */
+        .group-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 24px 20px;
+            background-color: #0a0a0a;
+            border-bottom: 2px solid #0066cc;  /* Blue border */
+        }
+
+        /* Group avatar with animation */
+        .group-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #004080, #00264d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: #fff;
+            box-shadow: 0 0 0 3px #0066cc, 0 4px 15px rgba(0, 102, 255, 0.6);
+            overflow: hidden;
+            flex-shrink: 0;
+            animation: pulseGlow 2s infinite ease-in-out;  /* Continuous pulse animation */
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 3px #0066cc, 0 4px 15px rgba(0, 102, 255, 0.6); transform: scale(1); }
+            50% { box-shadow: 0 0 0 6px #3399ff, 0 4px 25px rgba(51, 153, 255, 0.9); transform: scale(1.02); }
+            100% { box-shadow: 0 0 0 3px #0066cc, 0 4px 15px rgba(0, 102, 255, 0.6); transform: scale(1); }
+        }
+
+        .group-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 50%;
+            animation: rotateIn 0.8s ease-out;  /* Image load animation */
+        }
+
+        @keyframes rotateIn {
+            0% { transform: rotate(-180deg) scale(0.5); opacity: 0; }
+            100% { transform: rotate(0) scale(1); opacity: 1; }
+        }
+
+        .group-info {
+            flex: 1;
+        }
+
+        .group-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.3;
+            margin-bottom: 4px;
+            text-shadow: 0 0 8px #0066cc;  /* Blue glow */
+            animation: fadeInText 1s ease-out;
+        }
+
+        @keyframes fadeInText {
+            0% { opacity: 0; transform: translateX(-10px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .group-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #99ccff;  /* Light blue */
+        }
+
+        .group-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .group-meta i {
+            font-size: 16px;
+            opacity: 0.7;
+        }
+
+        /* Main content area */
+        .content {
+            padding: 20px;
+            background-color: #0f0f0f;  /* Slightly lighter black */
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #1a4c8c;  /* Blue border */
+            animation: slideInRow 0.5s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .info-row:nth-child(1) { animation-delay: 0.2s; }
+        .info-row:nth-child(2) { animation-delay: 0.4s; }
+
+        @keyframes slideInRow {
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .info-icon {
+            width: 44px;
+            height: 44px;
+            background-color: #001f3f;  /* Dark blue */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #4da6ff;  /* Bright blue */
+            border: 1px solid #0066cc;
+            box-shadow: 0 0 10px #0066cc;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .info-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 20px #3399ff;
+        }
+
+        .info-text {
+            flex: 1;
+            font-size: 16px;
+            color: #e0f0ff;
+        }
+
+        .info-text small {
+            display: block;
+            font-size: 13px;
+            color: #99ccff;
+            margin-bottom: 2px;
+        }
+
+        /* Button with blue theme */
+        .join-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(90deg, #0047b3, #0066cc);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            padding: 16px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 18px;
+            margin-top: 24px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 14px rgba(0, 102, 255, 0.6);
+            border: 1px solid #4da6ff;
+            animation: pulseButton 2s infinite;
+        }
+
+        @keyframes pulseButton {
+            0% { box-shadow: 0 6px 14px rgba(0, 102, 255, 0.6); transform: scale(1); }
+            50% { box-shadow: 0 10px 20px rgba(0, 102, 255, 0.9); transform: scale(1.02); }
+            100% { box-shadow: 0 6px 14px rgba(0, 102, 255, 0.6); transform: scale(1); }
+        }
+
+        .join-button:hover {
+            background: linear-gradient(90deg, #0066cc, #0047b3);
+            box-shadow: 0 8px 25px #3399ff;
+            transform: translateY(-2px);
+        }
+
+        /* Footnote */
+        .footnote {
+            text-align: center;
+            font-size: 13px;
+            color: #6699cc;
+            margin-top: 16px;
+            animation: fadeIn 2s;
+        }
+
+        /* Avatar fallback */
+        .avatar-fallback {
+            background: linear-gradient(145deg, #004080, #00264d);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="whatsapp-card">
+    <!-- Header: Group DP + Name -->
+    <div class="group-header">
+        <div class="group-avatar">
+            <!-- Group Display Picture (DP) - Replace with your group's image -->
+            <img src="https://via.placeholder.com/70x70/004080/ffffff?text=🇵🇸" alt="Voice of Palestine">
+            <!-- Fallback if image fails: 
+            <div class="avatar-fallback">🇵🇸</div> 
+            -->
+        </div>
+        <div class="group-info">
+            <div class="group-name">Voice of Palestine</div>
+            <div class="group-meta">
+                <span>🔒 Group</span>
+                <span>•</span>
+                <span>👥 50+ members</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Body -->
+    <div class="content">
+        <!-- Group link section -->
+        <div class="info-row">
+            <div class="info-icon">🔗</div>
+            <div class="info-text">
+                <small>Group link</small>
+                <span style="word-break: break-all;">chat.whatsapp.com/Di8t7jmY8...</span>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div class="info-row">
+            <div class="info-icon">📢</div>
+            <div class="info-text">
+                <small>Description</small>
+                <span>Official group for Voice of Palestine updates.</span>
+            </div>
+        </div>
+
+        <!-- WhatsApp join button -->
+        <a href="https://chat.whatsapp.com/Di8t7jmY8RBGGMOY6ZkzzE" 
+           class="join-button" 
+           target="_blank" 
+           rel="noopener noreferrer">
+            Open WhatsApp Group
+        </a>
+
+        <!-- Optional note -->
+        <div class="footnote">
+            Tap the button to join in WhatsApp
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
